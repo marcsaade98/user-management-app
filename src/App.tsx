@@ -1,8 +1,6 @@
-
-import './App.css'; //css import
+import './App.css'; // css import
 
 const App = () => {
-
 
   const users = [
     { id: 1, firstName: 'John', lastName: 'Doe', email: 'john@hotmail.com', status: 'Active', dob: '1990-01-01' },
@@ -13,17 +11,14 @@ const App = () => {
     { id: 6, firstName: 'Ali', lastName: 'Hajj', email: 'ali@hotmail.com', status: 'Active', dob: '2003-01-23' },
     { id: 7, firstName: 'Yara', lastName: 'Saade', email: 'yara@hotmail.com', status: 'Active', dob: '2003-10-16' },
     { id: 8, firstName: 'Tony', lastName: 'Eid', email: 'tony@hotmail.com', status: 'Active', dob: '1998-02-22' },
-  
   ];
 
-  const filteredUsers = users;
-
   return (
-    <div className="container"> 
+    <div className="container">
       {/* Navbar */}
-      <nav className="bg-[#3251D0] p-4 flex justify-between items-center"> 
+      <nav className="bg-[#3251D0] p-4 flex justify-between items-center">
         <h1 className="text-white text-2xl font-bold">User Management</h1>
-        <div className="space-x-4">
+        <div className="space-x-4 flex items-center">
           <button className="text-white px-4 py-2 rounded-md bg-blue-600 hover:bg-white-700">
             Create User
           </button>
@@ -33,30 +28,30 @@ const App = () => {
           <button className="text-white px-4 py-2 rounded-md bg-blue-600 hover:bg-white-700">
             Toggle Theme
           </button>
-          <button className="px-4 py-2 rounded-md ">
+          <div className="text-white px-4 py-2 rounded-md flex items-center justify-center">
             <img src="/moon.png" alt="Moon Icon" className="h-5 w-5" />
-          </button>
+          </div>
         </div>
       </nav>
 
+      {/* Search Input (read-only for now) */}
       <input
         type="text"
         placeholder="Search by name or email"
         value=""
         readOnly
-        className="w-full px-4 py-2 border rounded-md shadow-sm bg-gray-100 cursor-not-allowed"
+        className="w-full px-4 py-2 border rounded-md shadow-sm bg-gray-100 cursor-not-allowed my-4"
       />
-
 
       {/* User Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredUsers.map((user) => (
+        {users.map((user) => (
           <div
             key={user.id}
             className="bg-white p-4 rounded-lg shadow-lg border border-gray-200"
           >
             {/* User Initial */}
-            <div className="flex justify-center items-center bg-blue-500 text-white rounded-full h-16 w-16 text-xl font-bold mb-4">
+            <div className="flex justify-center items-center bg-blue-500 text-white rounded-full h-16 w-16 text-xl font-bold mb-4 mx-auto">
               {user.firstName.charAt(0)}{user.lastName.charAt(0)}
             </div>
 
